@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace SelinumFirst
 {
@@ -10,6 +7,19 @@ namespace SelinumFirst
     {
         static void Main(string[] args)
         {
+            //Create Reference to for Our WebBrowser
+            IWebDriver driver = new ChromeDriver();
+
+            //Navigate to Google Page
+            driver.Navigate().GoToUrl("https://www.google.com/");
+
+            //Find the element 
+            var element = driver.FindElement(By.Name("q"));
+
+            //perorm operation
+            element.SendKeys("shafiqkhuidad");
+
+            driver.Close();
         }
     }
 }
